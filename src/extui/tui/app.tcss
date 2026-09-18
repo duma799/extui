@@ -1,0 +1,296 @@
+Screen {
+    background: $background;
+    layers: base;
+}
+
+#body {
+    height: 1fr;
+}
+
+#sidebar {
+    width: 22;
+    height: 1fr;
+    border: round $primary-darken-2;
+    background: $surface;
+    padding: 0;
+    margin: 0 1 0 0;
+}
+#sidebar:focus {
+    border: round $accent;
+}
+#sidebar.compact {
+    width: 7;
+}
+
+#pages {
+    width: 1fr;
+    height: 1fr;
+}
+
+Page {
+    height: 1fr;
+    width: 1fr;
+}
+
+.page-banner {
+    height: auto;
+    padding: 0 1;
+    margin-bottom: 0;
+}
+
+.page-toolbar {
+    height: 3;
+    align-vertical: middle;
+}
+.page-toolbar > Static {
+    width: 1fr;
+    content-align: left middle;
+    height: 3;
+    padding: 0 1;
+}
+.page-toolbar > Input {
+    width: 40;
+    margin: 0 1 0 0;
+}
+
+.card-row {
+    height: auto;
+    margin-bottom: 1;
+}
+StatCard { margin-top: 1; }
+.card-row > StatCard {
+    width: 1fr;
+    margin-right: 1;
+}
+.card-row > StatCard:last-child {
+    margin-right: 0;
+}
+
+.button-row {
+    height: auto;
+    margin-top: 1;
+}
+.button-row > Button {
+    margin-right: 1;
+    min-width: 12;
+}
+/* On a narrow terminal these would be clipped; every one is reachable by key. */
+.compact-layout #btn-console { display: none; }
+.compact-layout #chunky-progress { display: none; }
+
+/* overview bands: fixed-height top and metrics, the rest goes to the bottom band */
+#overview-top { height: auto; }
+#overview-metrics { height: auto; }
+#overview-bottom {
+    height: 1fr;
+    min-height: 8;
+}
+#overview-bottom > StatCard {
+    margin-right: 1;
+    height: 1fr;
+}
+#overview-bottom > StatCard:last-child { margin-right: 0; }
+#card-tail { width: 2fr; }
+#card-players { width: 1fr; }
+#overview-tail {
+    height: 1fr;
+    background: transparent;
+    scrollbar-size-vertical: 1;
+}
+#card-players > .card-body { height: 1fr; }
+
+.perf-row {
+    height: auto;
+}
+.perf-col {
+    width: 1fr;
+    height: auto;
+    padding-right: 1;
+}
+.perf-label {
+    color: $text-muted;
+    text-style: bold;
+}
+#tps-digits, #mem-digits {
+    color: $success;
+    width: auto;
+}
+#tps-digits.warn, #mem-digits.warn { color: $warning; }
+#tps-digits.bad, #mem-digits.bad { color: $error; }
+Sparkline {
+    height: 2;
+    margin-top: 1;
+}
+
+/* console */
+#console-log {
+    height: 1fr;
+    border: round $primary-darken-2;
+    background: $surface;
+    padding: 0 1;
+}
+#console-input {
+    dock: bottom;
+    margin-top: 0;
+}
+
+/* players */
+#player-lists {
+    width: 24;
+    border: round $primary-darken-2;
+    margin-right: 1;
+}
+#player-table {
+    width: 1fr;
+}
+
+/* chunky */
+#chunky-buttons {
+    height: auto;
+    margin: 0 1 1 1;
+}
+#chunky-bar {
+    width: 1fr;
+    margin: 0 1;
+}
+#chunky-bar > Bar {
+    width: 1fr;
+}
+#chunky-log {
+    height: 1fr;
+    border: round $primary-darken-2;
+    background: $surface;
+    padding: 0 1;
+}
+
+/* advancements */
+#adv-table {
+    width: 1fr;
+}
+#adv-details-scroll {
+    width: 45%;
+    border: round $primary-darken-2;
+    padding: 0 1;
+    background: $surface;
+}
+
+/* exploration */
+#exp-bar {
+    width: 1fr;
+    margin: 0 1 1 1;
+}
+#exp-bar > Bar {
+    width: 1fr;
+}
+#exp-missing {
+    width: 40%;
+    border: round $primary-darken-2;
+    margin-right: 1;
+}
+#exp-results {
+    width: 1fr;
+}
+
+/* structures */
+#structure-input {
+    margin: 0 1 1 1;
+}
+
+/* files */
+#file-tree {
+    width: 40%;
+    border: round $primary-darken-2;
+    background: $surface;
+    margin-right: 1;
+}
+#file-tree:focus, #player-lists:focus, #exp-missing:focus {
+    border: round $accent;
+}
+#file-preview-pane {
+    width: 1fr;
+}
+#file-preview {
+    height: 1fr;
+    border: round $primary-darken-2;
+    background: $surface;
+    padding: 0 1;
+}
+
+/* logs */
+#logs-log {
+    height: 1fr;
+    border: round $primary-darken-2;
+    background: $surface;
+    padding: 0 1;
+}
+
+DataTable {
+    height: 1fr;
+    background: $surface;
+    border: round $primary-darken-2;
+}
+DataTable:focus {
+    border: round $accent;
+}
+DataTable > .datatable--header {
+    background: $panel;
+    color: $accent;
+    text-style: bold;
+}
+
+/* dialogs */
+ModalScreen {
+    align: center middle;
+    background: $background 60%;
+}
+.dialog {
+    width: 70;
+    max-width: 90%;
+    height: auto;
+    max-height: 90%;
+    border: thick $accent;
+    background: $panel;
+    padding: 1 2;
+}
+.dialog-help {
+    width: 90;
+    height: 90%;
+}
+.dialog-help > VerticalScroll {
+    height: 1fr;
+}
+.dialog-picker {
+    width: 80;
+}
+.dialog-picker > OptionList {
+    height: auto;
+    max-height: 20;
+    margin: 1 0;
+}
+.dialog-title {
+    text-style: bold;
+    color: $accent;
+    margin-bottom: 1;
+}
+.dialog-body {
+    height: auto;
+    margin-bottom: 1;
+}
+.dialog-buttons {
+    height: auto;
+    margin-top: 1;
+    align-horizontal: right;
+}
+.dialog-buttons > Button {
+    margin-left: 1;
+}
+.form-grid {
+    grid-size: 2;
+    grid-columns: 18 1fr;
+    grid-rows: 3;
+    height: auto;
+}
+.form-grid > Label {
+    height: 3;
+    content-align: left middle;
+}
