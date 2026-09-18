@@ -13,21 +13,23 @@ logs.
 With [uv](https://docs.astral.sh/uv/):
 
 ```sh
-uv tool install extui
-```
-
-Or with pipx or pip:
-
-```sh
-pipx install extui
-pip install extui
-```
-
-Python 3.11 or newer is required. To install straight from source:
-
-```sh
 uv tool install git+https://github.com/duma799/extui
 ```
+
+Or with pipx:
+
+```sh
+pipx install git+https://github.com/duma799/extui
+```
+
+Or with pip, into a virtual environment:
+
+```sh
+pip install git+https://github.com/duma799/extui
+```
+
+Python 3.11 or newer is required. To update later, add `--force` for uv, or
+`pipx reinstall extui`.
 
 ## Setup
 
