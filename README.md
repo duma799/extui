@@ -10,26 +10,38 @@ logs.
 
 ## Install
 
-With [uv](https://docs.astral.sh/uv/):
+Python 3.11 or newer is required. Use [uv](https://docs.astral.sh/uv/) or pipx, which put
+extui in its own environment and still place the command on your PATH:
 
 ```sh
-uv tool install git+https://github.com/duma799/extui
+uv tool install extui
 ```
-
-Or with pipx:
 
 ```sh
-pipx install git+https://github.com/duma799/extui
+pipx install extui
 ```
 
-Or with pip, into a virtual environment:
+Plain pip works too, but only inside a virtual environment. Outside one, most systems now
+refuse the install with an `externally-managed-environment` error:
 
 ```sh
-pip install git+https://github.com/duma799/extui
+python3 -m venv .venv && . .venv/bin/activate
+pip install extui
 ```
 
-Python 3.11 or newer is required. To update later, add `--force` for uv, or
-`pipx reinstall extui`.
+### Update
+
+```sh
+uv tool upgrade extui
+pipx upgrade extui
+pip install --upgrade extui
+```
+
+### Latest commit instead of a release
+
+```sh
+uv tool install --force git+https://github.com/duma799/extui
+```
 
 ## Setup
 
